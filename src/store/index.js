@@ -40,6 +40,8 @@ const store = createStore({
 		vuex_token: lifeData.vuex_token ? lifeData.vuex_token : '',
 		// 请求域名
 		$base_url: 'http://10.255.52.165:8001',
+		// 导航栏强制刷新key
+		$navkey:0,
 		//全局主题 这样做的目的是保证模板上可以直接使用
 		...$theme,
 		//网页配置

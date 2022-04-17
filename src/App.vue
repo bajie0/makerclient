@@ -13,4 +13,11 @@
 	.el-card{
 		border: none!important;
 	}
+	
+	// 媒体查询
+	@media screen and (min-width:2000px) {
+		body{
+			zoom:1.5
+		}
+	}
 </style>
