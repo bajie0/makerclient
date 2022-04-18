@@ -1,3 +1,3 @@
 export default {
-	viewportwidth:'840px'
+	viewportwidth:'1200px'
 }

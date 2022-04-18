@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+
+// 动画库
+import 'animate.css'
 // 引入vuex
 import {
 	store,

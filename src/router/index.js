@@ -32,6 +32,26 @@ const routes = [{
 			{
 				path: 'maker',
 				component: () => import('../views/Maker'),
+			},
+			// 创客空间页
+			{
+				path: 'makerspace',
+				component: () => import('../views/MakerSpace'),
+			},
+			// 成功案例页
+			{
+				path: 'project',
+				component: () => import('../views/Project'),
+			},
+			// 任务列表页
+			{
+				path: 'works',
+				component: () => import('../views/Works'),
+			},
+			// 任务详情页
+			{
+				path: 'workdetails',
+				component: () => import('../views/WorkDetails'),
 			}
 		]
 	}
@@ -55,6 +75,9 @@ router.beforeEach((to, from) => {
 //修复二级菜单弹出框无法自动消失
 router.afterEach((to, from) => {
 	if (to.path == '/index/publishneeds') {
+		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	if (to.path == '/index/works') {
 		store.vuex('$navkey', store.state.$navkey + 1)
 	}
 })

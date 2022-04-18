@@ -1,14 +1,14 @@
 <template>
-	<div class="inner-center height50 boxshadow-middle-10 sticky-top" :key="$navkey"
+	<div class="inner-center height60 boxshadow-middle-10 sticky-top" :key="$navkey"
 		:class="$route.path == '/index/publishneeds'? 'fill-color-assistfix text-color-white' : 'fill-color-white'">
 		<div class="inner-justify" :style="{width:viewportwidth}">
 			<div class="inner-left">
 				<div class="fontfix paddinglr10 font-17 hover-ol" @click="$router.replace('/')">微创客</div>
 				<div class="inner-left">
-					<el-popover placement="bottom-start" :offset="-4"
+					<el-popover placement="bottom-start" :offset="-4" :hide-after="0"
 						popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 5px;">
 						<template #reference>
-							<div class="paddinglr10 hover-ol height50 inner-center" @mouseenter="visiblepublish = true"
+							<div class="paddinglr10 hover-ol height60 inner-center" @mouseenter="visiblepublish = true"
 								:class="$route.path == '/index/publishneeds'? 'fill-color-main text-color-white' : 'fill-color-white'">
 								发布需求</div>
 						</template>
@@ -16,29 +16,29 @@
 						<div class="hover-sm padding10" v-for="(item,index) in 4" :key="index" @click="topublish(item)">
 							兼职</div>
 					</el-popover>
-					<div class="height50 inner-center paddinglr10 hover-ol" :class="$route.path == '/index/maker'? 'fill-color-main text-color-white' : ''" @click="$router.push('/index/maker')">寻找创客</div>
-					<el-popover :offset="-4" placement="bottom-start" width="500">
+					<div class="height60 inner-center paddinglr10 hover-ol" :class="$route.path == '/index/maker'? 'fill-color-main text-color-white' : ''" @click="$router.push('/index/maker')">寻找创客</div>
+					<el-popover :offset="-4" placement="bottom-start" width="500" :hide-after="0">
 						<template #reference>
-							<div class="hover-ol height50 inner-center paddinglr10">寻找任务</div>
+							<div class="hover-ol height60 inner-center paddinglr10">寻找任务</div>
 						</template>
 						<!-- 需求类型菜单 -->
-						<div class="width500 inner-left">
+						<div class="width700 inner-left">
 							<div v-for="(item,index) in 2" :key="index"
-								:class="index%2? 'padding-left-10' : 'border-right-lighter-1'">
+								:class="index%2? 'padding-left-30' : 'border-right-lighter-1'" class="padding-left-20">
 								<div v-for="(items,indexs) in 4" :key="indexs">
 									<div class="text-weight text-color-black-dark margin-top-10">市场营销</div>
-									<div class="flex-z gutter10 paddingtb10">
+									<div class="flex-z gutter10 paddingtb10 line-height-5">
 										<div v-for="(itemss,indexss) in 20"
-											class="hoverfix scale-sm-1 text-color-black-light" :key="indexss">细目</div>
+											class="hoverfix text-color-black-light" @click="toworks(itemss)" :key="indexss">细目</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</el-popover>
-					<el-popover placement="bottom-start" :offset="-4"
+					<el-popover placement="bottom-start" :offset="-4" :hide-after="0"
 						popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 5px;">
 						<template #reference>
-							<div class="hover-ol height50 inner-center paddinglr10">成功案例</div>
+							<div class="hover-ol height60 inner-center paddinglr10">成功案例</div>
 						</template>
 						<!-- 案例类型菜单 -->
 						<div class="hover-sm padding10" v-for="(item,index) in 8" :key="index">市场营销</div>
@@ -81,6 +81,10 @@
 	import router from '../router/index.js'
 	const topublish = (item) => {
 		router.push('/index/publishneeds')
+	}
+	//进入任务列表
+	const toworks = (item)=>{
+		router.push('/index/works')
 	}
 </script>
 

@@ -3,8 +3,8 @@
 		<div :style="{width:viewportwidth}" class="inner-left stretch">
 			<!-- 需求发布区 -->
 			<div class="flex-5">
-				<div class="inner-justify">
-					<div class="font-17 paddingtb20">需求发布</div>
+				<div class="inner-justify paddingtb30">
+					<div class="font-20 paddingtb20">需求发布</div>
 					<div>
 						<el-radio-group v-model="needstype">
 							<el-radio-button label="招聘" />
@@ -12,12 +12,12 @@
 						</el-radio-group>
 					</div>
 				</div>
-				<div class="fill-color-white padding20">
+				<div class="fill-color-white padding20 inner-padding-bottom-30">
 					<!-- 项目主题 -->
 					<div class="padding-bottom-10">
 						<div class="inner-left paddingtb10">
 							<div class="text-color-warning">*</div>
-							<div>项目主题</div>
+							<div class="font-15">项目主题</div>
 						</div>
 						<el-input v-model="formdata.title" placeholder="一句话描述,例如:我要开发一个微信小程序" />
 					</div>
@@ -25,7 +25,7 @@
 					<div class="padding-bottom-10">
 						<div class="inner-left paddingtb10">
 							<div class="text-color-warning">*</div>
-							<div>项目类型</div>
+							<div class="font-15">项目类型</div>
 						</div>
 						<div class="inner-left gutter10">
 							<el-select v-model="formdata.type" placeholder="选择项目类型" class="flex-1 of-hidden">
@@ -40,7 +40,7 @@
 					<div class="padding-bottom-10">
 						<div class="inner-left paddingtb10">
 							<div class="text-color-warning">*</div>
-							<div>需求描述</div>
+							<div class="font-15">需求描述</div>
 						</div>
 						<el-input type="textarea" rows="7" v-model="formdata.content" placeholder="请简单描述您的项目需求" />
 					</div>
@@ -48,7 +48,7 @@
 					<div class="padding-bottom-10">
 						<div class="inner-left paddingtb10">
 							<div class="text-color-warning">*</div>
-							<div>期望创客技能</div>
+							<div class="font-15">期望创客技能</div>
 						</div>
 						<el-select class="width-24" v-model="formdata.skills" multiple
 							placeholder="请合理期望期望创客技能,否则可能影响创客接单">
@@ -60,7 +60,7 @@
 						<div class="flex-1">
 							<div class="inner-left paddingtb10">
 								<div class="text-color-warning">*</div>
-								<div>期望成交价/元（只能输入整数）</div>
+								<div class="font-15">期望成交价/元（只能输入整数）</div>
 							</div>
 							<el-input v-model="formdata.price" placeholder="请合理期望成交价,否则可能影响创客接单" />
 						</div>
@@ -68,7 +68,7 @@
 						<div class="flex-1">
 							<div class="inner-left paddingtb10">
 								<div class="text-color-warning">*</div>
-								<div>期望工期/天（只能输入整数）</div>
+								<div class="font-15">期望工期/天（只能输入整数）</div>
 							</div>
 							<el-input v-model="formdata.days" placeholder="请合理期望工期,否则可能影响创客接单" />
 						</div>
@@ -76,15 +76,15 @@
 					<!-- 附件 -->
 					<div class="padding-bottom-10">
 						<div class="inner-left gutter10 paddingtb10">
-							<div>附件</div>
-							<div class="text-color-black-light scale-sm-2 ol">点击上传附件（最多7个且≤50MB，不支持.exe格式）</div>
+							<div class="font-15">附件</div>
+							<div class="text-color-black-light">点击上传附件（最多7个且≤50MB，不支持.exe格式）</div>
 						</div>
 						<el-upload action="https://jsonplaceholder.typicode.com/posts/" multiple>
 							<el-button type="primary">上传附件</el-button>
 						</el-upload>
 					</div>
 					<div class="inner-center paddingtb40">
-						<el-button type="primary" class="width200" @click="publish">发布项目</el-button>
+						<el-button type="primary" class="width220" @click="publish" size="large">发布项目</el-button>
 					</div>
 				</div>
 			</div>
