@@ -8,7 +8,7 @@
 					<div>
 						<el-radio-group v-model="needstype">
 							<el-radio-button label="招聘" />
-							<el-radio-button label="项目" />
+							<el-radio-button label="招标" />
 						</el-radio-group>
 					</div>
 				</div>
@@ -19,7 +19,7 @@
 							<div class="text-color-warning">*</div>
 							<div class="font-15">项目主题</div>
 						</div>
-						<el-input v-model="formdata.title" placeholder="一句话描述,例如:我要开发一个微信小程序" />
+						<el-input size="large" v-model="formdata.title" placeholder="一句话描述,例如:我要开发一个微信小程序" />
 					</div>
 					<!-- 项目类型 -->
 					<div class="padding-bottom-10">
@@ -28,10 +28,10 @@
 							<div class="font-15">项目类型</div>
 						</div>
 						<div class="inner-left gutter10">
-							<el-select v-model="formdata.type" placeholder="选择项目类型" class="flex-1 of-hidden">
+							<el-select size="large" v-model="formdata.type" placeholder="选择项目类型" class="flex-1 of-hidden">
 								<el-option v-for="(item,index) in 4" :key="index" label="类型" value="类型" />
 							</el-select>
-							<el-select v-model="formdata.service" placeholder="选择具体服务" class="of-hidden">
+							<el-select size="large" v-model="formdata.service" placeholder="选择具体服务" class="of-hidden">
 								<el-option v-for="(item,index) in 4" :key="index" label="服务" value="服务" />
 							</el-select>
 						</div>
@@ -42,7 +42,7 @@
 							<div class="text-color-warning">*</div>
 							<div class="font-15">需求描述</div>
 						</div>
-						<el-input type="textarea" rows="7" v-model="formdata.content" placeholder="请简单描述您的项目需求" />
+						<el-input size="large" type="textarea" rows="7" v-model="formdata.content" placeholder="请简单描述您的项目需求" />
 					</div>
 					<!-- 创客技能 -->
 					<div class="padding-bottom-10">
@@ -50,7 +50,7 @@
 							<div class="text-color-warning">*</div>
 							<div class="font-15">期望创客技能</div>
 						</div>
-						<el-select class="width-24" v-model="formdata.skills" multiple
+						<el-select size="large" class="width-24" v-model="formdata.skills" multiple
 							placeholder="请合理期望期望创客技能,否则可能影响创客接单">
 							<el-option v-for="(item,index) in 10" :key="index" label="技能" value="技能" />
 						</el-select>
@@ -62,7 +62,7 @@
 								<div class="text-color-warning">*</div>
 								<div class="font-15">期望成交价/元（只能输入整数）</div>
 							</div>
-							<el-input v-model="formdata.price" placeholder="请合理期望成交价,否则可能影响创客接单" />
+							<el-input size="large" v-model="formdata.price" placeholder="请合理期望成交价,否则可能影响创客接单" />
 						</div>
 						<!-- 工期 -->
 						<div class="flex-1">
@@ -70,7 +70,7 @@
 								<div class="text-color-warning">*</div>
 								<div class="font-15">期望工期/天（只能输入整数）</div>
 							</div>
-							<el-input v-model="formdata.days" placeholder="请合理期望工期,否则可能影响创客接单" />
+							<el-input size="large" v-model="formdata.days" placeholder="请合理期望工期,否则可能影响创客接单" />
 						</div>
 					</div>
 					<!-- 附件 -->

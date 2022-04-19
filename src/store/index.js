@@ -1,5 +1,6 @@
 import {
-	createStore,mapState
+	createStore,
+	mapState
 } from 'vuex'
 import config from '../congfig/config.js'
 
@@ -41,7 +42,7 @@ const store = createStore({
 		// 请求域名
 		$base_url: 'http://10.255.52.165:8001',
 		// 导航栏强制刷新key
-		$navkey:0,
+		$navkey: 0,
 		//全局主题 这样做的目的是保证模板上可以直接使用
 		...$theme,
 		//网页配置
@@ -79,11 +80,15 @@ try {
 
 }
 const storeMixin = {
+	mounted(){
+		document.documentElement.scrollTop = 0
+	},
 	computed: {
-			// 将vuex的state中的所有变量，解构到全局混入的mixin中
-			...mapState($uStoreKey)
-		}
+		// 将vuex的state中的所有变量，解构到全局混入的mixin中
+		...mapState($uStoreKey)
+	}
 }
 export {
-	store,storeMixin
+	store,
+	storeMixin
 }

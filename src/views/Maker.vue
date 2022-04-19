@@ -25,9 +25,10 @@
 				<!-- 创客列表 -->
 				<div class="flex-z paddingtb20 of-hidden">
 					<div @click="tomakerspace(item)" class="width-8 padding-right-10 margin-bottom-20 animate__animated animate__fadeInUp padding-left-10" :class="'time-' + (index + 1)" v-for="(item,index) in 27">
-						<el-card :body-style="{padding:'0px'}" shadow="hover" class="hover-ol">
+						<el-card :body-style="{padding:'0px'}" shadow="hover" class="hover-ol positionbox">
+							<el-tag size="small" class="prt margin10 scale-sm-2">个人创客</el-tag>
 							<div class="padding-top-20">
-								<div class="paddinglr20">
+								<div class="paddinglr20 paddingtb10">
 									<div class="inner-left">
 										<el-avatar :size="50" src="https://s.vzhuo.com/static/images/default-avatar01.png"></el-avatar>
 										<div class="flex-column padding-left-10">
@@ -41,7 +42,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="padding-top-10 ellipsis-1 tj text-color-black-light border-bottom-lighter-1 padding-bottom-10">
+									<div class="padding-top-10 ellipsis-1 tj text-color-black-light padding-bottom-10">
 										<span>技能：</span>
 										<span v-for="(item,index) in 4">小程序开发<span v-if="index != 3">、</span></span>
 									</div>

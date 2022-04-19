@@ -7,7 +7,12 @@ import {
 } from '../store/index.js'
 const routes = [{
 		path: '/',
-		redirect: '/index'
+		redirect: '/login'
+	},
+	// 登录页
+	{
+		path: '/login',
+		component: () => import('../views/Login'),
 	},
 	{
 		path: '/index',
@@ -52,6 +57,26 @@ const routes = [{
 			{
 				path: 'workdetails',
 				component: () => import('../views/WorkDetails'),
+			},
+			// 成功案例列表页
+			{
+				path: 'successproject',
+				component: () => import('../views/SuccessProject'),
+			},
+			// 个人资料表单页
+			{
+				path: 'profile',
+				component: () => import('../views/Profile'),
+			},
+			// 我的案例页
+			{
+				path: 'mycase',
+				component: () => import('../views/MyCase'),
+			},
+			// 我的案例页
+			{
+				path: 'order',
+				component: () => import('../views/Order'),
 			}
 		]
 	}
@@ -77,7 +102,22 @@ router.afterEach((to, from) => {
 	if (to.path == '/index/publishneeds') {
 		store.vuex('$navkey', store.state.$navkey + 1)
 	}
-	if (to.path == '/index/works') {
+	else if (to.path == '/index/works') {
+		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	else if (to.path == '/index/successproject') {
+		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	else if (to.path == '/index/successproject') {
+		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	else if (to.path == '/index/profile') {
+		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	else if (to.path == '/index/mycase') {
+		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	else if (to.path == '/index/order') {
 		store.vuex('$navkey', store.state.$navkey + 1)
 	}
 })

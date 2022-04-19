@@ -2,7 +2,7 @@
 	<div class="fill-color-page margin-bottom-40">
 		<div class="inner-center">
 			<div class="inner-left stretch" :style="{width:viewportwidth}">
-				<div class="width330">
+				<div class="flex-1">
 					<div
 						class="inner-column-center fill-color-white paddingtb50 padding-top-70 margin-top-100 positionbox">
 						<div class="move-to-top-120">
@@ -46,7 +46,7 @@
 						<el-tag v-for="(item,index) in 10" class="margin10">PHP</el-tag>
 					</div>
 				</div>
-				<div class="flex1">
+				<div class="flex-3">
 					<div class="inner-left gutter20 padding20">
 						<div @click="changeindex(index)" class="border-around-dark-1 padding20 paddingtb10 hover-ol"
 							v-for="(item,index) in tabs" :key="index"
@@ -166,8 +166,8 @@
 											<div>34</div>
 										</div>
 										<div class="inner-left">
-											<div class="custom-icon custom-icon-mobile"></div>
-											<div>450</div>
+											<div class="custom-icon custom-icon-moneycollect"></div>
+											<div>45000¥</div>
 										</div>
 									</div>
 									<div class="text-color-black-light padding-top-20 border-top-light-1">

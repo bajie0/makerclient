@@ -4,6 +4,7 @@
 			<!-- 右侧布局 -->
 			<div class="flex-5 fix1">
 				<div class="fill-color-white margintb10 padding20">
+					<!-- 搜索框 -->
 					<div class="padding-bottom-10">
 						<el-input placeholder="搜索任务" v-model="works" class="input-with-select" size="large">
 							<template #append>
@@ -90,7 +91,7 @@
 			<div class="flex-2 margin-left-10">
 				<div class="fill-color-white margin-top-10">
 					<div class="paddingtb20 padding-left-20 border-bottom-light-1 font-17">热门任务</div>
-					<div class="paddingtb20">
+					<div class="paddingtb10">
 						<div class="font-14 padding10 inner-justify paddinglr20 text-color-black-middle" v-for="(item,index) in 7" :key="index">
 							<div class="ellipsis-1 hoverfix" @click="$router.push('/details')">
 								范德萨富士达广泛大使馆反对是广泛的告诉
@@ -103,7 +104,7 @@
 				</div>
 				<div class="fill-color-white margin-top-10">
 					<div class="paddingtb20 padding-left-20 border-bottom-light-1 font-17">浏览过的</div>
-					<div class="paddingtb20">
+					<div class="paddingtb10">
 						<div class="font-14 padding10 inner-justify paddinglr20 text-color-black-middle" v-for="(item,index) in 7" :key="index">
 							<div class="ellipsis-1 hoverfix" @click="$router.push('/details')">
 								范德萨富士达广泛大使馆反对是广泛的告诉对方规划单方事故多发或多个
