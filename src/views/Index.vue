@@ -1,5 +1,5 @@
 <template>
-	<div class="page-color">
+	<div class="page-color flex-column">
 		<!-- 头部导航卡 -->
 		<maker-header></maker-header>
 		<!-- 展示区 -->

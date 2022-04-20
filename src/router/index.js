@@ -77,6 +77,16 @@ const routes = [{
 			{
 				path: 'order',
 				component: () => import('../views/Order'),
+			},
+			// 账户设置页
+			{
+				path: 'setaccount',
+				component: () => import('../views/SetAccount'),
+			},
+			// 消息页
+			{
+				path: 'message',
+				component: () => import('../views/Message'),
 			}
 		]
 	}
@@ -99,6 +109,7 @@ router.beforeEach((to, from) => {
 // 后置路由守卫，在路由跳转之后会执行
 //修复二级菜单弹出框无法自动消失
 router.afterEach((to, from) => {
+	document.documentElement.scrollTop = 0
 	if (to.path == '/index/publishneeds') {
 		store.vuex('$navkey', store.state.$navkey + 1)
 	}
@@ -118,6 +129,9 @@ router.afterEach((to, from) => {
 		store.vuex('$navkey', store.state.$navkey + 1)
 	}
 	else if (to.path == '/index/order') {
+		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	else if (to.path == '/index/setaccount') {
 		store.vuex('$navkey', store.state.$navkey + 1)
 	}
 })

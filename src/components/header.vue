@@ -22,7 +22,7 @@
 						@click="$router.push('/index/maker')">寻找创客</div>
 					<el-popover :offset="-4" placement="bottom-start" width="500" :hide-after="0">
 						<template #reference>
-							<div class="hover-ol height60 inner-center paddinglr10">寻找任务</div>
+							<div class="hover-ol height60 inner-center paddinglr10" :class="$route.path == '/index/works'? 'fill-color-main text-color-white' : ''">寻找任务</div>
 						</template>
 						<!-- 需求类型菜单 -->
 						<div class="width700 inner-left">
@@ -41,7 +41,7 @@
 					<el-popover placement="bottom-start" :offset="-4" :hide-after="0"
 						popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 5px;">
 						<template #reference>
-							<div class="hover-ol height60 inner-center paddinglr10">成功案例</div>
+							<div class="hover-ol height60 inner-center paddinglr10" :class="$route.path == '/index/successproject'? 'fill-color-main text-color-white' : ''">成功案例</div>
 						</template>
 						<!-- 案例类型菜单 -->
 						<div class="hover-sm padding10" v-for="(item,index) in 8" :key="index"
@@ -49,7 +49,7 @@
 					</el-popover>
 				</div>
 			</div>
-			<div class="inner-left gutter30">
+			<div class="inner-left gutter10">
 				<div class="of-hidden">
 					<el-input v-model="keywords" placeholder="请输入关键词">
 						<template #prepend>
@@ -63,7 +63,9 @@
 						</template>
 					</el-input>
 				</div>
-				<div class="custom-icon custom-icon-message font-20"></div>
+				<div class="custom-icon custom-icon-message font-20 height60 width60 inner-center positionbox hover-ol" @click="$router.push('/index/message')" :class="$route.path == '/index/message'? 'fill-color-main text-color-white' : ''">
+					<div class="prt fill-color-warning circle-box-20 inner-center font-10 margin10 text-color-white">10</div>
+				</div>
 				<el-popover placement="bottom-start" :hide-after="0" :offset="-4"
 					popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 5px;">
 					<template #reference>
@@ -76,7 +78,7 @@
 					<div class="hover-sm padding10" @click="$router.push('/index/profile')">个人资料</div>
 					<div class="hover-sm padding10" @click="$router.push('/index/mycase')">我的案例</div>
 					<div class="hover-sm padding10" @click="$router.push('/index/order')">我的订单</div>
-					<div class="hover-sm padding10">账号设置</div>
+					<div class="hover-sm padding10" @click="$router.push('/index/setaccount')">账号设置</div>
 					<div class="hover-sm padding10" @click="$router.replace('/login')">退出登录</div>
 				</el-popover>
 			</div>

@@ -25,7 +25,7 @@
 								<el-tag type="danger" class="marginlr10">进行中</el-tag>
 							</div>
 							<div class="inner-left">
-								<el-button plain type="primary">联系需求方</el-button>
+								<!-- <el-button plain type="primary">联系需求方</el-button> -->
 								<el-button type="primary" @click="doit">投标</el-button>
 							</div>
 						</div>
@@ -54,7 +54,7 @@
 									<div>允许第三方推荐</div>
 								</div>
 							</div>
-							<div class="inner-left">
+							<div class="inner-left text-color-black-light">
 								<div class="custom-icon custom-icon-eye"></div>
 								<div>125</div>
 							</div>
@@ -129,7 +129,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="margintb10 fill-color-white padding-bottom-40">
+					<!-- <div class="margintb10 fill-color-white padding-bottom-40">
 						<div class="inner-left gutter10 paddingtb30">
 							<div class="separateline-light-5 height30 fill-color-assist"></div>
 							<div class="font-20">已投标11人</div>
@@ -154,13 +154,150 @@
 										<div class="separateline-light-1 height10"></div>
 										<div>工期:21天</div>
 									</div>
-									<!-- 创客空间和成交的动画层 -->
+									创客空间和成交的动画层
 									<div class="width-24 h100 inner-center animate">
 										<el-button type="primary" plain @click.stop="showspace = true">创客空间</el-button>
-										<el-button type="warning">成交</el-button>
+										<el-button type="warning" @click="clinch">成交</el-button>
 									</div>
 								</div>
 							</div>
+						</div>
+					</div> -->
+					<!-- 项目进展 -->
+					<div class="margintb10 fill-color-white padding-bottom-40">
+						<div class="inner-left gutter10 paddingtb30">
+							<div class="separateline-light-5 height30 fill-color-assist"></div>
+							<div class="font-20">项目进展</div>
+						</div>
+						<div class="paddinglr20">
+							<el-timeline>
+								<el-timeline-item timestamp="2018/4/12" placement="top">
+									<el-card shadow="always">
+										<h4 class="font-17">发布项目</h4>
+										<div class="text-color-black-light padding-top-10">项目发布成功</div>
+									</el-card>
+								</el-timeline-item>
+								<el-timeline-item timestamp="2018/4/3" placement="top">
+									<el-card shadow="always">
+										<h4 class="font-17">创客投标</h4>
+										<div class="flex-z paddingtb30 padding-bottom-10">
+											<div class="width-8 margin-bottom-20" v-for="(item,index) in 14"
+												:key="index">
+												<div
+													class="border-around-lighter-1 padding10 marginlr10 hoverfix hover-ol positionbox of-hidden">
+													<el-tag size="small" class="prt ">个人创客</el-tag>
+													<div class="inner-left">
+														<el-image class="circle-box-50 self-top"
+															src="https://s.vzhuo.com/static/images/default-avatar03.png">
+														</el-image>
+														<div>
+															<div class="text-space-2 font-17 padding-left-10">赵鹏</div>
+															<div class="flex-menu width130 text-color-black-light">
+																<div>临汾</div>
+																<div>软件开发</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="inner-left text-color-black-light gutter10 font-14 padding-top-10">
+														<div>报价:<span class="text-color-warning">12400￥</span></div>
+														<div class="separateline-light-1 height10"></div>
+														<div>工期:21天</div>
+													</div>
+													<!-- 创客空间和成交的动画层 -->
+													<div class="width-24 h100 inner-center animate">
+														<el-button type="primary" plain @click.stop="showspace = true">
+															创客空间</el-button>
+														<el-button type="warning" @click="clinch">成交</el-button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="text-color-black-light inner-right">共有12人参与竞标</div>
+									</el-card>
+								</el-timeline-item>
+								<el-timeline-item timestamp="2018/4/2" placement="top">
+									<el-card shadow="always">
+										<h4 class="font-17">创客中标</h4>
+										<div class="flex-z paddingtb30 padding-bottom-10">
+											<div class="flex-1">
+												<div
+													class="border-around-lighter-1 padding10 marginlr10 hoverfix hover-ol positionbox of-hidden">
+													<el-tag size="small" class="prt ">个人创客</el-tag>
+													<div class="inner-left">
+														<el-image class="circle-box-50 self-top"
+															src="https://s.vzhuo.com/static/images/default-avatar03.png">
+														</el-image>
+														<div>
+															<div class="text-space-2 font-17 padding-left-10">赵鹏</div>
+															<div class="flex-menu width130 text-color-black-light">
+																<div>临汾</div>
+																<div>软件开发</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="inner-left text-color-black-light gutter10 font-14 padding-top-10">
+														<div>报价:<span class="text-color-warning">12400￥</span></div>
+														<div class="separateline-light-1 height10"></div>
+														<div>工期:21天</div>
+													</div>
+													<!-- 创客空间和成交的动画层 -->
+													<div class="width-24 h100 inner-center animate">
+														<el-button type="primary" plain @click.stop="showspace = true">
+															创客空间</el-button>
+														<el-button type="warning" @click="clinch">成交</el-button>
+													</div>
+												</div>
+											</div>
+											<div class="flex-2">
+												<div class="inner-right">
+													<!-- 角色为需求方 为支付 -->
+													<el-button type="warning" @click="pay" v-if="true">支付订单</el-button>
+													<!-- 角色为创客 为发货 -->
+													<div v-else>
+														<div class="text-color-black-light">您的工期为21天，距离最迟发货时间还剩20天</div>
+														<div class="inner-right paddingtb10">
+															<el-button type="primary" @click="ship">发货</el-button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</el-card>
+								</el-timeline-item>
+								<el-timeline-item timestamp="2018/4/2" placement="top">
+									<el-card shadow="always">
+										<h4 class="font-17">创客发货</h4>
+										<div class="paddingtb30 inner-padding-bottom-10">
+											<div class="inner-justify" v-if="true">
+												<div class="inner-left">
+													<div class="text-color-black-light">快递单号：</div>
+													<div>124545548578574</div>
+												</div>
+												<el-button type="primary">快递进度</el-button>
+											</div>
+											<div class="inner-left" v-else>
+												<div class="text-color-black-light">附件信息：</div>
+												<div class="hover-ol text-color-main custom-icon custom-icon-file">
+													logo设计打包ai源文件</div>
+											</div>
+										</div>
+										<div class="inner-center padding-top-30 padding-bottom-10">
+											<el-button size="large" type="primary" class="width300" @click="receipt">
+												确认收货</el-button>
+										</div>
+									</el-card>
+								</el-timeline-item>
+								<el-timeline-item timestamp="2018/4/12" placement="top">
+									<el-card shadow="always">
+										<h4 class="font-17">收货完成</h4>
+										<div class="paddingtb30">
+											您已于2018/4/12检查全部附件或实体物件并确认无误，收货成功。
+										</div>
+									</el-card>
+								</el-timeline-item>
+							</el-timeline>
 						</div>
 					</div>
 				</div>
@@ -178,7 +315,7 @@
 					<div class="padding40 paddingtb20 padding-left-30 border-bottom-light-1 font-17">热门任务</div>
 					<div class="paddingtb10">
 						<div class="font-14 padding10 inner-justify paddinglr30" v-for="(item,index) in 7" :key="index">
-							<div class="ellipsis-1 hoverlink" @click="$router.push('/details')">
+							<div class="ellipsis-1 hoverlink" @click="$router.push('/index/workdetails')">
 								范德萨富士达广泛大使馆反对是广泛的告诉对方规划单方事故多发或多个
 							</div>
 							<div :style="{color:warningColor}">
@@ -204,7 +341,7 @@
 					<div class="font-15 line-height-15">我的报价</div>
 					<div class="paddinglr10 text-color-black-light">单位:元</div>
 				</div>
-				<el-input placeholder="请输入报价额" size="large"></el-input>
+				<el-input placeholder="请输入报价额" size="large" type="number" v-model="tenderform.price"></el-input>
 			</div>
 			<!-- 需要时间 -->
 			<div>
@@ -213,7 +350,7 @@
 					<div class="font-15 line-height-15">我需要的工期</div>
 					<div class="paddinglr10 text-color-black-light">单位:天</div>
 				</div>
-				<el-input placeholder="请输入需要的时间" size="large"></el-input>
+				<el-input placeholder="请输入需要的时间" v-model="tenderform.time" size="large"></el-input>
 			</div>
 			<!-- 留言 -->
 			<div>
@@ -221,11 +358,11 @@
 					<div class="text-color-warning">*</div>
 					<div class="font-15 line-height-15">我要留言</div>
 				</div>
-				<el-input type="textarea" :rows="4" size="large"></el-input>
+				<el-input type="textarea" :rows="4" size="large" v-model="tenderform.message"></el-input>
 			</div>
 		</div>
 		<div class="inner-center padding-top-20">
-			<el-button type="primary">确认投标</el-button>
+			<el-button type="primary" @click="tenderconfirm">确认投标</el-button>
 		</div>
 	</el-dialog>
 	<!-- 创客空间作为对话框 -->
@@ -234,17 +371,113 @@
 		<template #title>
 			<div class="inner-left gutter20">
 				<div class="font-30">小戒的创客空间</div>
-				<el-button type="warning" size="large">成交</el-button>
+				<el-button type="warning" size="large" @click="clinch">成交</el-button>
 			</div>
+		</template>
+	</el-dialog>
+	<!-- 订单支付对话框 -->
+	<el-dialog v-model="paydialogVisible" width="30%" title="支付确认">
+		<div class="inner-column-center padding-bottom-20">
+			<div>支付金额：</div>
+			<div class="font-40 text-color-warning text-weight">12500¥</div>
+		</div>
+		<template #footer>
+			<span class="dialog-footer">
+				<el-button @click="paydialogVisible = false">取消</el-button>
+				<el-button type="primary" @click="payconfirm">确认支付</el-button>
+			</span>
+		</template>
+	</el-dialog>
+	<!-- 创客发货的对话框 -->
+	<el-dialog v-model="shipdialogVisible" width="40%" title="发货">
+		<div class="padding-bottom-20 inner-padding-bottom-30">
+			<div>
+				<div class="inner-left padding-bottom-10">
+					<div class="text-color-warning">*</div>
+					<div>发货类型：</div>
+				</div>
+				<el-radio-group v-model="shiptype" size="large">
+					<el-radio-button label="快递发货" />
+					<el-radio-button label="虚拟发货" />
+				</el-radio-group>
+			</div>
+			<!-- 快递发货 -->
+			<div v-if="shiptype == '快递发货'">
+				<div class="inner-left padding-bottom-10">
+					<div class="text-color-warning">*</div>
+					<div>快递单号：</div>
+				</div>
+				<el-input placeholder="请输入快递单号" size="large"></el-input>
+			</div>
+			<!-- 虚拟发货 -->
+			<div v-if="shiptype == '虚拟发货'">
+				<div class="inner-left padding-bottom-10">
+					<div class="text-color-warning">*</div>
+					<div>上传附件：</div>
+				</div>
+				<el-upload class="upload-demo" drag action="https://jsonplaceholder.typicode.com/posts/" multiple>
+					<el-icon class="el-icon--upload">
+						<upload-filled class="font-100" />
+					</el-icon>
+					<div class="el-upload__text">
+						Drop file here or <em>click to upload</em>
+					</div>
+					<template #tip>
+						<div class="el-upload__tip">
+							jpg/png files with a size less than 500kb
+						</div>
+					</template>
+				</el-upload>
+				<div>您发货前上传的项目图片或截图可以作为纠纷时的凭据。更重要的是，在需求方确认收货时，这些图片将展示在您的案例列表里，其它需求方通过您的成功案例可以增加对您能力的了解。</div>
+			</div>
+			<div>
+				<div class="inner-left padding-bottom-10">
+					<div class="text-color-warning">*</div>
+					<div>上传部分项目完成图：</div>
+					<el-tooltip class="box-item" effect="dark" placement="top-start">
+						<div class="hover-ol text-color-main">有何用？</div>
+						<template #content>
+							<div class="width400">您发货前上传的项目图片或截图可以作为纠纷时的凭据。更重要的是，在需求方确认收货时，这些图片将展示在您的案例列表里，其它需求方通过您的成功案例可以增加对您能力的了解。</div>
+						</template>
+					</el-tooltip>
+				</div>
+				<el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card"
+					:on-preview="handlePictureCardPreview" :on-remove="handleRemove" :file-list="fileList">
+					<el-icon>
+						<Plus />
+					</el-icon>
+				</el-upload>
+
+				<el-dialog v-model="imgdialogVisible">
+					<img w-full :src="dialogImageUrl" alt="Preview Image" />
+				</el-dialog>
+			</div>
+		</div>
+		<template #footer>
+			<span class="dialog-footer">
+				<el-button @click="shipdialogVisible = false">取消</el-button>
+				<el-button type="primary" @click="shipconfirm">确认发货</el-button>
+			</span>
 		</template>
 	</el-dialog>
 </template>
 
 <script setup>
 	import {
-		ref
+		ref,
+		reactive
 	} from 'vue'
 	import MakerSpace from './MakerSpace.vue'
+	import {
+		Plus
+	} from '@element-plus/icons-vue'
+	import {
+		UploadFilled
+	} from '@element-plus/icons-vue'
+	import {
+		ElMessage,
+		ElMessageBox
+	} from 'element-plus'
 	//进度条数据
 	const progresslist = ref([{
 			title: '发布项目'
@@ -253,13 +486,16 @@
 			title: '创客投标'
 		},
 		{
-			title: '雇佣创客'
+			title: '创客中标'
 		},
 		{
-			title: '交付文件'
+			title: '支付订单'
 		},
 		{
-			title: '项目完成'
+			title: '创客发货'
+		},
+		{
+			title: '收货完成'
 		}
 	])
 
@@ -268,12 +504,85 @@
 	const doit = () => {
 		dialogVisible.value = true
 	}
-	
+	//投标form
+	const tenderform = reactive({
+		price: '',
+		time: '',
+		message: ''
+	})
+	//确定投标
+	const tenderconfirm = () => {
+		//调投标的接口
+
+		dialogVisible.value = false
+	}
+	//成交
+	const clinch = () => {
+		ElMessageBox.confirm('确认成交吗？').then(res => {
+			if (res) {
+				//调用成交的接口
+
+
+			}
+		})
+	}
+
 	//创客空间对话框
 	const showspace = ref(false)
+
+	//支付订单
+	const paydialogVisible = ref(false)
+	const pay = () => {
+		paydialogVisible.value = true
+	}
+	//确认支付
+	const payconfirm = () => {
+		// 调取支付接口
+
+		paydialogVisible.value = false
+	}
+	//创客发货
+	const shipdialogVisible = ref(false)
+	const ship = () => {
+		shipdialogVisible.value = true
+	}
+	//发货类型
+	const shiptype = ref('快递发货')
+	//创客确认发货
+	const shipconfirm = () => {
+		// 调取确认发货的接口
+
+		shipdialogVisible.value = false
+	}
+	//需求方确认收货
+	const receipt = () => {
+		//调取确认收货的接口
+
+	}
+
+	//上传项目缩略图
+	const fileList = ref([])
+
+	const dialogImageUrl = ref('')
+	const imgdialogVisible = ref(false)
+
+	const handleRemove = (uploadFile, uploadFiles) => {
+		console.log(uploadFile, uploadFiles)
+	}
+
+	const handlePictureCardPreview = (uploadFile) => {
+		dialogImageUrl.value = uploadFile.url
+		imgdialogVisible.value = true
+	}
 </script>
 
 <style scoped lang="scss">
+	.el-card.is-always-shadow {
+		box-shadow: none;
+		border-bottom: 2px solid v-bind(pageColor) !important;
+		border-radius: unset;
+	}
+
 	// @keyframes fade {
 	// 	0%{
 	// 		top: 100%;
