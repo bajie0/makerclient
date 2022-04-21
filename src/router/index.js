@@ -99,12 +99,12 @@ const router = createRouter({
 
 // 前置路由守卫，在路由跳转之前会执行
 router.beforeEach((to, from) => {
-	// if (to.path !== '/login') {
-	// 	const token = JSON.parse(localStorage.getItem('lifeData'))?.vuex_token
-	// 	if (!token) {
-	// 		router.replace('/login')
-	// 	}
-	// }
+	if (to.path !== '/login') {
+		const token = JSON.parse(localStorage.getItem('lifeData'))?.vuex_token
+		if (!token) {
+			router.replace('/login')
+		}
+	}
 })
 // 后置路由守卫，在路由跳转之后会执行
 //修复二级菜单弹出框无法自动消失
@@ -133,6 +133,9 @@ router.afterEach((to, from) => {
 	}
 	else if (to.path == '/index/setaccount') {
 		store.vuex('$navkey', store.state.$navkey + 1)
+	}
+	else if (to.path == '/login') {
+		localStorage.clear()
 	}
 })
 

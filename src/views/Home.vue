@@ -34,10 +34,10 @@
 				<div class="inner-center padding20 font-20 padding-top-40 font-30">优质创客</div>
 				<!-- tabs -->
 				<div class="inner-left">
-					<div @click="changemakertab(index,item)" v-for="(item,index) in 9" :key="index"
+					<div @click="changemakertab(index,item)" v-for="(item,index) in $industrylist" :key="index"
 						class="padding20 paddingtb10 font-20 hover-ol"
 						:class="makercurrentTab == index? 'border-bottom-dark-4 text-weight text-color-main border-color-main' : 'text-color-black-light'">
-						市场运营</div>
+						{{item.title}}</div>
 				</div>
 				<!-- tabs对应的数据 -->
 				<div class="inner-left gutter20 paddingtb30">
@@ -84,10 +84,10 @@
 				<div class="inner-center padding20 font-20 padding-top-40 font-30">优秀案例</div>
 				<!-- tabs -->
 				<div class="inner-left">
-					<div @click="changeexampletab(index,item)" v-for="(item,index) in 9" :key="index"
+					<div @click="changeexampletab(index,item)" v-for="(item,index) in $industrylist" :key="index"
 						class="padding20 paddingtb10 font-20 hover-ol"
 						:class="examplecurrentTab == index? 'border-bottom-dark-4 text-weight text-color-main border-color-main' : 'text-color-black-light'">
-						市场运营</div>
+						{{item.title}}</div>
 				</div>
 				<!-- tabs对应的数据 -->
 				<div class="flex-z paddingtb30">
@@ -132,11 +132,27 @@
 		ref
 	} from 'vue'
 	import router from '../router/index.js'
+	import { store } from '../store/index.js'
 	//请求轮播图数据
 	const carouseldata = ref([])
 	carouseldata.value = ['https://img.zcool.cn/community/01a11358da3298a801219c779fb047.jpg@1280w_1l_2o_100sh.jpg',
 		'https://img.zcool.cn/community/01922e58da329ea801219c779ea93e.jpg@1280w_1l_2o_100sh.jpg'
 	]
+	
+	//获取行业类型的tabs数据 并存入至vuex
+	function getindustrydata(){
+		let url = store.$url.dictionary_url
+		store.$api.get(url,{
+			id:"b64145ea-0acb-44d4-b356-77858bc6af69"
+		}).then(res => {
+			console.log(res)
+			// 并存入至vuex
+			store.vuex('$industrylist',res.data)
+		})
+	}
+	getindustrydata()
+	
+	
 	//创客tab切换
 	const makercurrentTab = ref(0)
 	const changemakertab = (index, item) => {

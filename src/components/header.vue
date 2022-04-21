@@ -79,7 +79,7 @@
 					<div class="hover-sm padding10" @click="$router.push('/index/mycase')">我的案例</div>
 					<div class="hover-sm padding10" @click="$router.push('/index/order')">我的订单</div>
 					<div class="hover-sm padding10" @click="$router.push('/index/setaccount')">账号设置</div>
-					<div class="hover-sm padding10" @click="$router.replace('/login')">退出登录</div>
+					<div class="hover-sm padding10" @click="loginout">退出登录</div>
 				</el-popover>
 			</div>
 		</div>
@@ -90,6 +90,8 @@
 	import {
 		ref
 	} from 'vue'
+	import { store } from '@/store/index.js'
+	import { ElMessage } from 'element-plus'
 	import {
 		Search
 	} from '@element-plus/icons-vue'
@@ -104,6 +106,16 @@
 	//进入任务列表
 	const toworks = (item) => {
 		router.push('/index/works')
+	}
+	
+	//退出登录
+	const loginout = ()=>{
+		ElMessage.success('注销成功')
+		//调注销登录的接口
+		let url = store.$url.logout_url
+		store.$api.get(url).then(res => {
+			router.replace('/login')
+		})
 	}
 </script>
 

@@ -37,10 +37,10 @@ console.log($theme)
 const store = createStore({
 	// 下面这些值仅为示例，使用过程中请删除
 	state: {
+		// 行业类型列表
+		$industrylist:[],
 		// token
 		vuex_token: lifeData.vuex_token ? lifeData.vuex_token : '',
-		// 请求域名
-		$base_url: 'http://10.255.52.165:8001',
 		// 导航栏强制刷新key
 		$navkey: 0,
 		//全局主题 这样做的目的是保证模板上可以直接使用
