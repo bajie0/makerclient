@@ -12,7 +12,7 @@ try {
 
 }
 // 需要永久存储，且下次APP启动需要取出的，在state中的变量名
-let saveStateKeys = ['vuex_token'];
+let saveStateKeys = ['vuex_token', '$makercertification', '$maker_id','$nickname'];
 
 // 保存变量到本地存储中
 const saveLifeData = function(key, value) {
@@ -37,6 +37,24 @@ console.log($theme)
 const store = createStore({
 	// 下面这些值仅为示例，使用过程中请删除
 	state: {
+		//认证类型
+		$certification_type:[],
+		//性别
+		$sex:'',
+		// 文件标识
+		$filenote:[],
+		//身份
+		$identity:[],
+		//最高学历
+		$heightestedu:[],
+		//昵称
+		$nickname:lifeData.$nickname ? lifeData.$nickname : '',
+		// 需求类型的数组
+		$needstype: [],
+		// 创客认证状态
+		$makercertification: lifeData.$makercertification ? lifeData.$makercertification : '未认证',
+		// 创客id
+		$maker_id: lifeData.$maker_id ? lifeData.$maker_id : null,
 		// 行业类型列表
 		$industrylist:[],
 		// token

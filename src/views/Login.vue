@@ -197,6 +197,12 @@
 			user_name:user_name.value,
 			pass_word:pass_word.value
 		}).then(res => {
+			console.log(res)
+			// 将用户id和认证状态写入vuex
+			store.vuex('$maker_id',res.data[0].id)
+			store.vuex('$makercertification',res.data[0].certification_type_title)
+			// 获取用户昵称
+			store.vuex('$nickname',res.data[0].nickname)
 			// 存token
 			store.vuex('vuex_token',res.token)
 			router.replace('/index/home')

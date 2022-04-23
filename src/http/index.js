@@ -6,7 +6,7 @@ import { ElLoading } from 'element-plus'
 // 转圈圈加载的组件实例
 let loadingInstance = null
 // 延缓转圈圈的定时器
-let timer = null
+let timer = []
 import {
 	store
 } from '../store/index.js'
@@ -28,12 +28,12 @@ const instance = axios.create({
 instance.interceptors.request.use(
 	// 请求成功的拦截
 	config => {
-		timer = setTimeout(()=>{
+		timer.push(setTimeout(()=>{
 			loadingInstance = ElLoading.service({
 				text:'加载中...',
 				background:'rgba(0,0,0,.7)',
 			})
-		},setTings.loadingTimeoutTime)
+		},setTings.loadingTimeoutTime))
 		const token = store.state.vuex_token
 		if (token) {
 			config.headers = {
@@ -52,7 +52,9 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
 	// 响应成功的拦截
 	response => {
-		clearTimeout(timer)
+		for (let item of timer) {
+			clearTimeout(item)
+		}
 		if(loadingInstance){
 			loadingInstance.close()
 		}
@@ -77,7 +79,9 @@ instance.interceptors.response.use(
 	},
 	// 响应失败的拦截
 	error => {
-		clearTimeout(timer)
+		for (let item of timer) {
+			clearTimeout(item)
+		}
 		if(loadingInstance){
 			loadingInstance.close()
 		}

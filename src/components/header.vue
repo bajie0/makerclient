@@ -13,8 +13,8 @@
 								发布需求</div>
 						</template>
 						<!-- 需求类型菜单 -->
-						<div class="hover-sm padding10" v-for="(item,index) in 4" :key="index" @click="topublish(item)">
-							兼职</div>
+						<div class="hover-sm padding10" v-for="(item,index) in $needstype" :key="index" @click="topublish(item)">
+							{{ item.title }}</div>
 					</el-popover>
 					<!-- <div class="height60 inner-center paddinglr10 hover-ol" :class="$route.path == '/index/publishneeds'? 'fill-color-main text-color-white' : ''" @click="$router.push('/index/publishneeds')">发布需求</div> -->
 					<div class="height60 inner-center paddinglr10 hover-ol"
@@ -71,7 +71,7 @@
 					<template #reference>
 						<div class="inner-left gutter10 height60 hover-ol">
 							<el-avatar :size="30" src="https://s.vzhuo.com/static/images/default-avatar01.png" />
-							<div>小戒</div>
+							<div>{{nickname}}</div>
 						</div>
 					</template>
 					<!-- 我的-->
@@ -95,13 +95,21 @@
 	import {
 		Search
 	} from '@element-plus/icons-vue'
+	//昵称获取
+	const nickname = store.state.$nickname
 	// 搜索
 	const keywords = ref('')
 	const select = ref('')
 	//去需求发布
 	import router from '../router/index.js'
 	const topublish = (item) => {
-		router.push('/index/publishneeds')
+		console.log(item)
+		router.push({
+			path:'/index/publishneeds',
+			query:{
+				title:item.title
+			}
+		})
 	}
 	//进入任务列表
 	const toworks = (item) => {

@@ -100,7 +100,7 @@ const router = createRouter({
 // 前置路由守卫，在路由跳转之前会执行
 router.beforeEach((to, from) => {
 	if (to.path !== '/login') {
-		const token = JSON.parse(localStorage.getItem('lifeData'))?.vuex_token
+		const token = store.state.vuex_token
 		if (!token) {
 			router.replace('/login')
 		}
